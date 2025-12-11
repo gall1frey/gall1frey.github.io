@@ -1,43 +1,53 @@
 const projects = [
     {
         id: 1,
-        title: "Mini Drone Flight Controller",
+        title: "Mini Quadcopter",
         category: "aviation",
-        thumbnail: "https://via.placeholder.com/400x300/001133/00bfff?text=DRONE+PROJECT",
+        thumbnail: "https://media.licdn.com/dms/image/v2/D562DAQFRGwA2xwo-Aw/profile-treasury-image-shrink_800_800/B56ZoxXaN.HQAY-/0/1761764812520?e=1766019600&v=beta&t=7qnqB2kBvE8XfSBF7qrzLyBJr1Q_rBh8COfYmjKerq0https://via.placeholder.com/400x300/001133/00bfff?text=DRONE+PROJECT",
         youtubeId: null,
-        description: "Custom flight controller built from scratch using ESP32. Implements PID control for stable flight on a 10cm x 10cm quadcopter.",
-        repoLink: "https://github.com/yourusername/drone-controller",
+        description: "Mini quadcopter with an ESP32 flight controller. Implements PID control for stable flight on a 10cm x 10cm quadcopter.",
+        repoLink: null,
         demoLink: null
     },
     {
         id: 2,
         title: "Indoor WiFi Localization",
         category: "robotics",
-        thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
-        youtubeId: "dQw4w9WgXcQ",
+        thumbnail: null,
+        youtubeId: "1fyw1vySwcY",
         description: "Localization indoors using WiFi and IMU",
-        repoLink: "https://github.com/yourusername/robot-arm",
-        demoLink: "https://demo-link.com"
+        repoLink: "https://github.com/kumarashish1neu/turtle_bot_sim",
+        demoLink: "https://youtu.be/dgcIssnIu2o"
     },
     {
         id: 3,
         title: "Analysing Audio Attack Vectors",
         category: "cybersecurity",
-        thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
+        thumbnail: null,
         youtubeId: "dQw4w9WgXcQ",
         description: "Performed attacks on various smart voice assistants exploiting multiple attack vectors including MEMS microphones, adversarial attacks on speech to text applications, etc.",
-        repoLink: "https://github.com/yourusername/robot-arm",
-        demoLink: "https://demo-link.com"
+        repoLink: "https://github.com/gall1frey/AudioAttacksPoc",
+        demoLink: "https://www.youtube.com/playlist?list=PL2Cc95P3WAOs-A4DZWljsi0PWCMEUXQMH"
     },
     {
         id: 4,
         title: "Catcher Bot",
         category: "robotics",
         thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
-        youtubeId: "dQw4w9WgXcQ",
+        youtubeId: "tzTRts2LMA4",
         description: "Building a stereo camera from scratch and using it to track and intercept projectiles before they hit the ground",
-        repoLink: "https://github.com/yourusername/robot-arm",
-        demoLink: "https://demo-link.com"
+        repoLink: null,
+        demoLink: "https://www.youtube.com/watch?v=tzTRts2LMA4"
+    },
+    {
+        id: 5,
+        title: "Mouse Learning",
+        category: "robotics",
+        thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
+        youtubeId: "iAEoczEfzE4",
+        description: "Used reinforcement learning to help a mouse find and follow cheese",
+        repoLink: "https://github.com/gall1frey/genetic_nav",
+        demoLink: "https://www.youtube.com/playlist?list=PL2Cc95P3WAOsi7gX9XcnVNSPGaU4TX4sN"
     },
 ];
 
