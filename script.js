@@ -3,7 +3,7 @@ const projects = [
         id: 1,
         title: "Mini Quadcopter",
         category: "aviation",
-        thumbnail: "https://media.licdn.com/dms/image/v2/D562DAQFRGwA2xwo-Aw/profile-treasury-image-shrink_800_800/B56ZoxXaN.HQAY-/0/1761764812520?e=1766019600&v=beta&t=7qnqB2kBvE8XfSBF7qrzLyBJr1Q_rBh8COfYmjKerq0https://via.placeholder.com/400x300/001133/00bfff?text=DRONE+PROJECT",
+        thumbnail: "images/1761764812520.jpeg",
         youtubeId: null,
         description: "Mini quadcopter with an ESP32 flight controller. Implements PID control for stable flight on a 10cm x 10cm quadcopter.",
         repoLink: null,
@@ -24,7 +24,7 @@ const projects = [
         title: "Analysing Audio Attack Vectors",
         category: "cybersecurity",
         thumbnail: null,
-        youtubeId: "dQw4w9WgXcQ",
+        youtubeId: "3JiykF2eGcU",
         description: "Performed attacks on various smart voice assistants exploiting multiple attack vectors including MEMS microphones, adversarial attacks on speech to text applications, etc.",
         repoLink: "https://github.com/gall1frey/AudioAttacksPoc",
         demoLink: "https://www.youtube.com/playlist?list=PL2Cc95P3WAOs-A4DZWljsi0PWCMEUXQMH"
