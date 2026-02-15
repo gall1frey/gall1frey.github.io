@@ -49,6 +49,15 @@ const projects = [
         repoLink: "https://github.com/gall1frey/genetic_nav",
         demoLink: "https://www.youtube.com/playlist?list=PL2Cc95P3WAOsi7gX9XcnVNSPGaU4TX4sN"
     },
+    {
+        id: 5,
+        title: "RC Ornithopter",
+        category: "robotics",
+        thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
+        youtubeId: "cnt9GTpCAfc1gwlg",
+        description: "Created a rigid body mechanism to control flapping, variable wing sweep, and elevator of an ornithopter",
+        demoLink: "https://youtu.be/TA-N2Ic8qzw?si=cnt9GTpCAfc1gwlg"
+    },
 ];
 
 // Handle intro screen scroll
