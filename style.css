@@ -12,6 +12,7 @@ body {
     overflow-x: hidden;
 }
 
+/* ── Intro ── */
 .intro-screen {
     position: fixed;
     top: 0;
@@ -25,144 +26,201 @@ body {
     z-index: 9999;
     transition: opacity 0.5s ease-out;
 }
-
 .intro-screen.fade-out {
     opacity: 0;
     pointer-events: none;
 }
-
 .intro-text {
-    font-size: 12px;
-    line-height: 2;
+    font-size: 11px;
+    line-height: 2.2;
     color: #fff;
     text-align: center;
-    max-width: 600px;
+    max-width: 560px;
     padding: 40px;
-    animation: blink 1.5s infinite;
 }
 
-/* @keyframes blink {
-    0%, 49% {
-        opacity: 1;
-    }
-    50%, 100% {
-        opacity: 0.3;
-    }
-} */
-
+/* ── Main content ── */
 .main-content {
-    padding: 20px;
+    padding: 40px 20px 60px;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-top: 100vh;
+    background: #080808;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 40px;
-    padding: 20px;
-    /* border: 4px solid #fff; */
-    background: #000;
+    margin-bottom: 48px;
 }
-
 .header h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
 }
-
 .header p {
-    font-size: 10px;
-    color: #fff;
-    margin-top: 10px;
+    font-size: 8px;
+    color: #555;
+    letter-spacing: 3px;
 }
 
+/* ── Board / grid ── */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 160px);  /* fixed columns, not auto-fit */
-  gap: 24px 20px;
-  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 180px);
+    gap: 32px 28px;
+    justify-content: center;
+    max-width: 960px;
+    margin: 0 auto;
+    /* enough padding so rotated cards don't clip */
+    padding: 20px 40px 40px;
 }
 
-/* Each card gets a different rotation via nth-child */
-.project-tile:nth-child(1) { transform: rotate(-3deg); }
-.project-tile:nth-child(2) { transform: rotate(1.5deg); }
-/* etc — stagger margin-top too for vertical scatter */
-
-.project-tile:hover { transform: rotate(0deg) scale(1.08) !important; z-index: 10; }
-
+/* ── Polaroid card ── */
 .project-tile {
-    border: 4px solid #fff;
-    background: #fff;
-    padding: 15px 15px 40px 15px;
+    background: #f0ead8;
+    padding: 8px 8px 32px 8px;
+    width: 180px;
     cursor: pointer;
-    transition: all 0.3s;
     position: relative;
-    image-rendering: pixelated;
-    width: 100%;
-    max-width: 350px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0s;
+    z-index: 1;
     clip-path: polygon(
-        0 8px, 8px 8px, 8px 0,
-        calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px,
-        100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), calc(100% - 8px) 100%,
-        8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px)
+        0 5px, 5px 5px, 5px 0,
+        calc(100% - 5px) 0, calc(100% - 5px) 5px, 100% 5px,
+        100% calc(100% - 5px), calc(100% - 5px) calc(100% - 5px), calc(100% - 5px) 100%,
+        5px 100%, 5px calc(100% - 5px), 0 calc(100% - 5px)
     );
 }
 
+/* Scattered rotations + vertical offsets */
+.project-tile:nth-child(1)  { transform: rotate(-3deg)   translateY(0px); }
+.project-tile:nth-child(2)  { transform: rotate(1.5deg)  translateY(14px); }
+.project-tile:nth-child(3)  { transform: rotate(-2deg)   translateY(6px); }
+.project-tile:nth-child(4)  { transform: rotate(2.5deg)  translateY(-8px); }
+.project-tile:nth-child(5)  { transform: rotate(-1deg)   translateY(10px); }
+.project-tile:nth-child(6)  { transform: rotate(3deg)    translateY(-4px); }
+.project-tile:nth-child(7)  { transform: rotate(-2.5deg) translateY(8px); }
+.project-tile:nth-child(8)  { transform: rotate(1deg)    translateY(-10px); }
+.project-tile:nth-child(9)  { transform: rotate(-1.5deg) translateY(4px); }
+
 .project-tile:hover {
-    transform: scale(1.05) rotate(-1deg);
-    background: #f5f5f5;
+    transform: rotate(0deg) translateY(0) scale(1.08) !important;
+    z-index: 20;
 }
 
-.project-tile.aviation {
-    border-color: #fff;
+/* Tape strip */
+.project-tile::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 18px;
+    background: rgba(255, 255, 200, 0.5);
+    border: 1px solid rgba(200, 190, 120, 0.35);
+    clip-path: polygon(
+        0 2px, 2px 2px, 2px 0,
+        calc(100% - 2px) 0, calc(100% - 2px) 2px, 100% 2px,
+        100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%,
+        2px 100%, 2px calc(100% - 2px), 0 calc(100% - 2px)
+    );
+}
+.project-tile:nth-child(even)::before {
+    transform: translateX(-50%) rotate(-5deg);
 }
 
-.project-tile.aviation:hover {
-    background: #f5f5f5;
-}
-
-.project-tile.robotics {
-    border-color: #fff;
-}
-
-.project-tile.robotics:hover {
-    background: #f5f5f5;
-}
-
-.project-tile.cyber {
-    border-color: #fff;
-}
-
-.project-tile.cyber:hover {
-    background: #f5f5f5;
-}
-
-.tile-content img, .tile-content iframe {
+/* ── Thumbnail / CRT screen ── */
+.tile-thumb {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border: 2px solid #000;
-    margin-bottom: 15px;
+    height: 120px;
+    background: #0d1a0d;
+    border: 2px solid #1a1a1a;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
     image-rendering: pixelated;
 }
 
-.tile-content h3 {
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: #000;
-    text-align: center;
+/* Scanlines */
+.tile-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px, transparent 2px,
+        rgba(0, 0, 0, 0.2) 2px, rgba(0, 0, 0, 0.2) 4px
+    );
+    pointer-events: none;
+    z-index: 3;
 }
 
+/* Pixel noise */
+.tile-thumb::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 8px 8px, 13px 13px;
+    background-position: 0 0, 5px 5px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.tile-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+    image-rendering: pixelated;
+    filter: saturate(0.7) contrast(1.1);
+}
+
+.tile-thumb iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: relative;
+    z-index: 1;
+    pointer-events: none; /* clicks open modal instead of playing inline */
+}
+
+/* Category tint on screens with no real media */
+.project-tile.aviation   .tile-thumb { background: #0d0d1a; }
+.project-tile.robotics   .tile-thumb { background: #0d1a0d; }
+.project-tile.cybersecurity .tile-thumb,
+.project-tile.cyber      .tile-thumb { background: #1a0d0d; }
+
+/* ── Card text ── */
 .tile-content .category {
-    font-size: 8px;
-    margin-bottom: 10px;
-    opacity: 0.7;
-    color: #000;
+    font-size: 6px;
+    color: #888;
+    letter-spacing: 2px;
     text-align: center;
+    margin-bottom: 5px;
 }
 
+.tile-content h3 {
+    font-size: 7px;
+    color: #1a1a1a;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* Category accent colour on badge */
+.project-tile.aviation   .category { color: #7090cc; }
+.project-tile.robotics   .category { color: #3a7a4a; }
+.project-tile.cybersecurity .category,
+.project-tile.cyber      .category { color: #aa3333; }
+
+/* ── Modal ── */
 .modal {
     display: none;
     position: fixed;
@@ -170,148 +228,119 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.96);
     z-index: 1000;
     overflow-y: auto;
     padding: 20px;
 }
-
 .modal.active {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 60px;
 }
-
 .modal-content {
-    background: #fff;
-    border: 6px solid #fff;
-    padding: 20px 20px 40px 20px;
-    max-width: 800px;
+    background: #f0ead8;
+    padding: 24px 24px 40px;
+    max-width: 720px;
     width: 100%;
     position: relative;
-    margin: 20px;
+    margin: 20px auto;
     clip-path: polygon(
-        0 12px, 12px 12px, 12px 0,
-        calc(100% - 12px) 0, calc(100% - 12px) 12px, 100% 12px,
-        100% calc(100% - 12px), calc(100% - 12px) calc(100% - 12px), calc(100% - 12px) 100%,
-        12px 100%, 12px calc(100% - 12px), 0 calc(100% - 12px)
+        0 10px, 10px 10px, 10px 0,
+        calc(100% - 10px) 0, calc(100% - 10px) 10px, 100% 10px,
+        100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px), calc(100% - 10px) 100%,
+        10px 100%, 10px calc(100% - 10px), 0 calc(100% - 10px)
     );
 }
-
-.modal-content.aviation {
-    border-color: #fff;
-}
-
-.modal-content.robotics {
-    border-color: #fff;
-}
-
-.modal-content.cyber {
-    border-color: #fff;
-}
-
 .close-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border: 3px solid #000;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    background: #1a1a1a;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    color: #000;
-    transition: all 0.2s;
+    font-size: 18px;
+    color: #f0ead8;
+    transition: background 0.2s;
     clip-path: polygon(
-        0 4px, 4px 4px, 4px 0,
-        calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
-        100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
-        4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px)
+        0 3px, 3px 3px, 3px 0,
+        calc(100% - 3px) 0, calc(100% - 3px) 3px, 100% 3px,
+        100% calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 100%,
+        3px 100%, 3px calc(100% - 3px), 0 calc(100% - 3px)
     );
 }
-
 .close-btn:hover {
-    background: #000;
-    color: #fff;
-    transform: scale(1.1);
+    background: #444;
 }
-
 .modal-content h2 {
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom: 20px;
-    color: #000;
+    color: #1a1a1a;
     text-align: center;
+    padding-right: 40px;
 }
-
 .modal-content .media {
     width: 100%;
-    height: 400px;
+    height: 380px;
     margin-bottom: 20px;
-    border: 3px solid #000;
+    border: 3px solid #1a1a1a;
+    display: block;
+    object-fit: cover;
+    image-rendering: pixelated;
+    filter: saturate(0.75) contrast(1.05);
 }
-
 .modal-content .description {
-    font-size: 10px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    color: #000;
+    font-size: 8px;
+    line-height: 2.2;
+    margin-bottom: 24px;
+    color: #1a1a1a;
 }
-
 .modal-content .links {
     display: flex;
-    gap: 15px;
+    gap: 14px;
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .modal-content .links a {
     display: inline-block;
-    padding: 10px 20px;
-    background: #fff;
-    color: #000;
-    border: 3px solid #000;
+    padding: 10px 18px;
+    background: #1a1a1a;
+    color: #f0ead8;
     text-decoration: none;
-    font-size: 10px;
-    transition: all 0.2s;
+    font-size: 7px;
+    letter-spacing: 1px;
+    transition: background 0.2s;
     clip-path: polygon(
-        0 4px, 4px 4px, 4px 0,
-        calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
-        100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
-        4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px)
+        0 3px, 3px 3px, 3px 0,
+        calc(100% - 3px) 0, calc(100% - 3px) 3px, 100% 3px,
+        100% calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 100%,
+        3px 100%, 3px calc(100% - 3px), 0 calc(100% - 3px)
     );
 }
-
 .modal-content .links a:hover {
-    background: #000;
-    color: #fff;
+    background: #444;
 }
 
-@media (max-width: 768px) {
-    .intro-text {
-        font-size: 10px;
-        padding: 20px;
+/* ── Responsive ── */
+@media (max-width: 680px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 160px);
+        gap: 28px 20px;
     }
+    .intro-text { font-size: 9px; padding: 20px; }
+    .header h1  { font-size: 14px; }
+    .modal-content h2 { font-size: 11px; }
+    .modal-content .media { height: 240px; }
+}
 
-    .header h1 {
-        font-size: 16px;
-    }
-
+@media (max-width: 400px) {
     .projects-grid {
         grid-template-columns: 1fr;
-    }
-
-    .tile-content h3 {
-        font-size: 12px;
-    }
-
-    .modal-content {
-        padding: 20px;
-    }
-
-    .modal-content h2 {
-        font-size: 14px;
+        justify-items: center;
     }
 }
