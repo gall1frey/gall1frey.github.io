@@ -56,6 +56,7 @@ const projects = [
         thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
         youtubeId: "ZecHoexf4Sw",
         description: "Created a rigid body mechanism to control flapping, variable wing sweep, and elevator of an ornithopter",
+        repoLink: "https://github.com/gall1frey/ornithopter",
         demoLink: "https://www.youtube.com/playlist?list=PL2Cc95P3WAOvVsbrhK9XDPtWNo7-u5--b"
     },
 ];
@@ -64,31 +65,30 @@ const projects = [
 const introScreen = document.getElementById('introScreen');
 let scrollTimeout;
 
+// Replace your scroll listener with this
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
     const windowHeight = window.innerHeight;
-    
+
     // Fade out intro when scrolling past 30% of viewport
     if (scrollPosition > windowHeight * 0.3) {
         introScreen.classList.add('fade-out');
     } else {
         introScreen.classList.remove('fade-out');
     }
-    
-    // Snap to second page after scroll ends
+
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
-        if (scrollPosition > windowHeight * 0.3 && scrollPosition < windowHeight * 1.5) {
-            window.scrollTo({
-                top: windowHeight,
-                behavior: 'smooth'
-            });
-        } else if (scrollPosition < windowHeight * 0.3 && scrollPosition > 0) {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        // Only snap if the user is still near the transition zone (within 1.5x viewport height)
+        // Once they've scrolled deeper into the projects, leave them alone
+        if (scrollPosition < windowHeight * 0.3 && scrollPosition > 0) {
+            // Snap back to top if barely scrolled
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (scrollPosition >= windowHeight * 0.3 && scrollPosition < windowHeight * 0.85) {
+            // Snap forward to main content only if still in the transition zone
+            window.scrollTo({ top: windowHeight, behavior: 'smooth' });
         }
+        // If scrollPosition >= windowHeight * 0.85 → user is in the projects, don't snap
     }, 150);
 });
 
