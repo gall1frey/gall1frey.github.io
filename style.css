@@ -79,15 +79,18 @@ body {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 350px));  /* max matches tile max-width */
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-    width: 100%;
-    justify-content: center;   /* centers the columns within the grid container */
-    justify-items: center;     /* centers each tile within its cell */
+  display: grid;
+  grid-template-columns: repeat(3, 160px);  /* fixed columns, not auto-fit */
+  gap: 24px 20px;
+  justify-content: center;
 }
+
+/* Each card gets a different rotation via nth-child */
+.project-tile:nth-child(1) { transform: rotate(-3deg); }
+.project-tile:nth-child(2) { transform: rotate(1.5deg); }
+/* etc — stagger margin-top too for vertical scatter */
+
+.project-tile:hover { transform: rotate(0deg) scale(1.08) !important; z-index: 10; }
 
 .project-tile {
     border: 4px solid #fff;
