@@ -51,12 +51,12 @@ const projects = [
     },
     {
         id: 5,
-        title: "RC Ornithopter",
+        title: "Ornithopter Mechanism",
         category: "robotics",
         thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
-        youtubeId: "TA-N2Ic8qzw",
+        youtubeId: "ZecHoexf4Sw",
         description: "Created a rigid body mechanism to control flapping, variable wing sweep, and elevator of an ornithopter",
-        demoLink: "https://youtu.be/TA-N2Ic8qzw"
+        demoLink: "https://www.youtube.com/playlist?list=PL2Cc95P3WAOvVsbrhK9XDPtWNo7-u5--b"
     },
 ];
 
