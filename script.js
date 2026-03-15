@@ -33,7 +33,7 @@ const projects = [
         id: 4,
         title: "Catcher Bot",
         category: "robotics",
-        thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
+        thumbnail: null,
         youtubeId: "tzTRts2LMA4",
         description: "Building a stereo camera from scratch and using it to track and intercept projectiles before they hit the ground",
         repoLink: null,
@@ -43,17 +43,17 @@ const projects = [
         id: 5,
         title: "Mouse Learning",
         category: "robotics",
-        thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
+        thumbnail: null,
         youtubeId: "iAEoczEfzE4",
         description: "Used reinforcement learning to help a mouse find and follow cheese",
         repoLink: "https://github.com/gall1frey/genetic_nav",
         demoLink: "https://www.youtube.com/playlist?list=PL2Cc95P3WAOsi7gX9XcnVNSPGaU4TX4sN"
     },
     {
-        id: 5,
+        id: 6,
         title: "Ornithopter Mechanism",
         category: "robotics",
-        thumbnail: "https://via.placeholder.com/400x300/110033/ff00ff?text=ROBOT+ARM",
+        thumbnail: null,
         youtubeId: "ZecHoexf4Sw",
         description: "Created a rigid body mechanism to control flapping, variable wing sweep, and elevator of an ornithopter",
         repoLink: "https://github.com/gall1frey/ornithopter",
@@ -61,41 +61,28 @@ const projects = [
     },
 ];
 
-// Handle intro screen scroll
+// ── Intro scroll ──
 const introScreen = document.getElementById('introScreen');
 let scrollTimeout;
 
-// Replace your scroll listener with this
 window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+    const vh = window.innerHeight;
 
-    // Fade out intro when scrolling past 30% of viewport
-    if (scrollPosition > windowHeight * 0.3) {
-        introScreen.classList.add('fade-out');
-    } else {
-        introScreen.classList.remove('fade-out');
-    }
+    introScreen.classList.toggle('fade-out', scrollY > vh * 0.3);
 
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
-        // Only snap if the user is still near the transition zone (within 1.5x viewport height)
-        // Once they've scrolled deeper into the projects, leave them alone
-        if (scrollPosition < windowHeight * 0.3 && scrollPosition > 0) {
-            // Snap back to top if barely scrolled
+        if (scrollY < vh * 0.3 && scrollY > 0) {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else if (scrollPosition >= windowHeight * 0.3 && scrollPosition < windowHeight * 0.85) {
-            // Snap forward to main content only if still in the transition zone
-            window.scrollTo({ top: windowHeight, behavior: 'smooth' });
+        } else if (scrollY >= vh * 0.3 && scrollY < vh * 0.85) {
+            window.scrollTo({ top: vh, behavior: 'smooth' });
         }
-        // If scrollPosition >= windowHeight * 0.85 → user is in the projects, don't snap
+        // beyond 0.85 vh → user is browsing projects, leave them alone
     }, 150);
 });
 
-function getCategoryColor(category) {
-    return '#fff';
-}
-
+// ── Render tiles ──
 function renderProjects() {
     const grid = document.getElementById('projectsGrid');
     grid.innerHTML = '';
@@ -105,13 +92,22 @@ function renderProjects() {
         tile.className = `project-tile ${project.category}`;
         tile.onclick = () => openModal(project);
 
-        const mediaHTML = project.youtubeId 
-            ? `<iframe src="https://www.youtube.com/embed/${project.youtubeId}" frameborder="0" allowfullscreen></iframe>`
-            : `<img src="${project.thumbnail}" alt="${project.title}">`;
+        // Thumbnail: prefer YouTube embed, then image
+        let mediaHTML;
+        if (project.youtubeId) {
+            // Use thumbnail image for the tile (avoids iframe scroll/interaction issues)
+            mediaHTML = `<img src="https://img.youtube.com/vi/${project.youtubeId}/mqdefault.jpg" alt="${project.title}">`;
+        } else if (project.thumbnail) {
+            mediaHTML = `<img src="${project.thumbnail}" alt="${project.title}">`;
+        } else {
+            mediaHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:7px;color:#444;line-height:2;text-align:center;">NO<br>SIGNAL</span>
+            </div>`;
+        }
 
         tile.innerHTML = `
+            <div class="tile-thumb">${mediaHTML}</div>
             <div class="tile-content">
-                ${mediaHTML}
                 <div class="category">[ ${project.category.toUpperCase()} ]</div>
                 <h3>${project.title}</h3>
             </div>
@@ -121,29 +117,27 @@ function renderProjects() {
     });
 }
 
+// ── Modal ──
 function openModal(project) {
-    const modal = document.getElementById('modal');
+    const modal        = document.getElementById('modal');
     const modalContent = document.getElementById('modalContent');
-    const modalBody = document.getElementById('modalBody');
+    const modalBody    = document.getElementById('modalBody');
 
-    modalContent.className = `modal-content ${project.category}`;
-
-    const color = getCategoryColor(project.category);
-    const closeBtn = modalContent.querySelector('.close-btn');
-    closeBtn.style.borderColor = color;
-    closeBtn.style.color = color;
-
-    const mediaHTML = project.youtubeId 
-        ? `<iframe class="media" src="https://www.youtube.com/embed/${project.youtubeId}" frameborder="0" allowfullscreen></iframe>`
-        : `<img class="media" src="${project.thumbnail}" alt="${project.title}">`;
+    // Full iframe in modal (user can interact)
+    let mediaHTML;
+    if (project.youtubeId) {
+        mediaHTML = `<iframe class="media" src="https://www.youtube.com/embed/${project.youtubeId}" frameborder="0" allowfullscreen></iframe>`;
+    } else if (project.thumbnail) {
+        mediaHTML = `<img class="media" src="${project.thumbnail}" alt="${project.title}">`;
+    } else {
+        mediaHTML = `<div class="media" style="background:#0d0d0d;display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:9px;color:#333;">NO SIGNAL</span>
+        </div>`;
+    }
 
     const links = [];
-    if (project.repoLink) {
-        links.push(`<a href="${project.repoLink}" target="_blank">[ GITHUB REPO ]</a>`);
-    }
-    if (project.demoLink) {
-        links.push(`<a href="${project.demoLink}" target="_blank">[ LIVE DEMO ]</a>`);
-    }
+    if (project.repoLink) links.push(`<a href="${project.repoLink}" target="_blank">[ GITHUB REPO ]</a>`);
+    if (project.demoLink)  links.push(`<a href="${project.demoLink}"  target="_blank">[ LIVE DEMO ]</a>`);
 
     modalBody.innerHTML = `
         <h2>${project.title}</h2>
@@ -157,21 +151,18 @@ function openModal(project) {
 }
 
 function closeModal() {
-    const modal = document.getElementById('modal');
-    modal.classList.remove('active');
+    document.getElementById('modal').classList.remove('active');
     document.body.style.overflow = 'auto';
 }
 
-modal.onclick = (e) => {
-    if (e.target === modal) {
-        closeModal();
-    }
-};
+// Close on backdrop click
+document.getElementById('modal').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal')) closeModal();
+});
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeModal();
-    }
+// Close on Escape
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
 });
 
 renderProjects();
