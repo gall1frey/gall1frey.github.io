@@ -1,0 +1,31 @@
+{
+  "name": "Hi!",
+  "title": "Engineering notebook",
+  "titleblock": [
+    {
+      "label": "Notebook of",
+      "value": "Mallika"
+    }
+  ],
+  "lede": "==I take things apart to find out how they work, then try to build better ones.== Robots, film cameras, radios, and other people's industrial control systems (with permission).",
+  "intro": [
+    "I study Robotics. Before that I spent a few years penetration testing ICS devices. Now I'm interested in the place where those two worlds meet: keeping robots secure once they're out in the real world.",
+    "This site is my lab notebook. The [notes](#/notes) section is where new entries go."
+  ],
+  "contact_note": "Robots, cameras, or breaking things on purpose.",
+  "links": [
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/mallika-sirdeshpande"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/gall1frey"
+    }
+  ],
+  "categories": [
+    "Robotics",
+    "Misc",
+    "Security"
+  ]
+}

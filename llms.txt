@@ -1,0 +1,24 @@
+> Robotics engineer. Background in ICS penetration testing at Schneider Electric. Works on secure, resilient robotic systems. Tinkerer: SAE Aero, ornithopters, radios.
+
+The site is a single-page notebook. Its content is stored as plain files:
+
+- [Site intro and links](https://gall1frey.github.io/data/site.json)
+- [Projects](https://gall1frey.github.io/data/projects.json): each has a journal in the projects folder
+- [Experience, education, skills](https://gall1frey.github.io/data/experience.json)
+- [Post index](https://gall1frey.github.io/posts/index.json)
+
+## Project journals (Markdown)
+- [Wifinder](https://gall1frey.github.io/projects/wifinder.md): Fusing Wi-Fi signal strength with IMU data in ROS 2 to localize a robot indoors.
+- [Ornithopters](https://gall1frey.github.io/projects/ornithopters.md): How close can mechanisms get to replicating a bird's wing?
+- [Frog Drone](https://gall1frey.github.io/projects/frog-drone.md): A modular quadcopter with passive landing gear that uses its bounces to navigate.
+- [An SLR that shoots instant film](https://gall1frey.github.io/projects/slr-instant-film.md): Fitting a mirror, a focusing screen and an instant film pack into one body.
+- [Film, start to finish](https://gall1frey.github.io/projects/film-start-to-finish.md): Restoring a film camera, then developing the film myself.
+- [Audio Attacks](https://gall1frey.github.io/projects/ausio-attacks.md): Automating attacks on voice assistants.
+
+## Posts (Markdown)
+- [Why my notebook is on the internet](https://gall1frey.github.io/posts/why-my-notebook-is-on-the-internet.md): What this site is for and how new entries get onto it.
+- [Taking notes on a Hack The Box machine](https://gall1frey.github.io/posts/taking-notes-on-a-hack-the-box-machine.md): The one-page template I use so every machine teaches me something.
+
+## Elsewhere
+- [LinkedIn](https://www.linkedin.com/in/mallika-sirdeshpande)
+- [GitHub](https://github.com/gall1frey)

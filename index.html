@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>engineering notebook</title>
+<meta name="description" content="Robotics engineer. Projects and notes on ROS2, sensor fusion, ICS security, cameras and film.">
+<link rel="canonical" href="https://gall1frey.github.io/">
+<meta property="og:title" content="engineering notebook">
+<meta property="og:description" content="Robotics, cybersecurity and tinkering. Projects and notes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gall1frey.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%93%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mallika",
+  "url": "https://gall1frey.github.io/",
+  "jobTitle": "Robotics Engineer",
+  "knowsAbout": ["Robotics", "ROS2", "Sensor fusion", "Autonomous navigation", "ICS penetration testing", "Cybersecurity", "Quadcopters", "Film photography", "Camera design"],
+  "sameAs": ["https://www.linkedin.com/in/mallika-sirdeshpande", "https://github.com/gall1frey"]
+}
+</script>
+<script src="js/app.js" defer></script>
 </head>
 <body>
-    <div class="intro-screen" id="introScreen">
-        <p class="intro-text">
-            you have probably landed here because I couldn't tell you enough about my projects in person or on a resume. scroll down to see all that i have been up to
-        </p>
-    </div>
+<a class="sr" href="#app">Skip to content</a>
 
-    <div class="main-content" id="mainContent">
-        <div class="header">
-            <h1>/* PROJECTS */</h1>
-            <p>[ AVIATION | ROBOTICS | CYBERSECURITY ]</p>
-        </div>
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#/">engineering notebook</a>
+    <nav aria-label="Main">
+      <a href="#/projects" data-nav="projects">Projects</a>
+      <a href="#/notes" data-nav="notes">Notes</a>
+      <a href="#/about" data-nav="about">About</a>
+      <a href="#/contact" data-nav="contact" class="cta">Say hello</a>
+      <button class="theme" id="theme" type="button" aria-label="Switch between paper and blueprint">blueprint</button>
+    </nav>
+  </div>
+</header>
 
-        <div class="projects-grid" id="projectsGrid"></div>
+<main id="app" tabindex="-1">
+  <div class="page">
+    <noscript>
+      <h1>Mallika</h1>
+      <p>This notebook needs JavaScript to turn its pages. Plain-text versions of everything are in <a href="llms.txt">llms.txt</a>; project journals are Markdown files in the <code>projects</code> folder and blog posts are in <a href="posts/index.json">posts</a>.</p>
+    </noscript>
+    <p>Opening the notebook...</p>
+  </div>
+</main>
 
-        <div class="modal" id="modal">
-            <div class="modal-content" id="modalContent">
-                <div class="close-btn" onclick="closeModal()">✕</div>
-                <div id="modalBody"></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<footer>
+  <div class="page">
+    <p>Written by hand in plain HTML. No tracking, no framework.</p>
+    <p><a href="llms.txt">llms.txt</a></p>
+  </div>
+</footer>
 </body>
 </html>

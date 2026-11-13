@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gall1frey.github.io/sitemap.xml

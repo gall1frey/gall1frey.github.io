@@ -1,0 +1,12 @@
+{
+  "certifications": [
+    {"title": "Certified SOLIDWORKS Design Professional", "detail": "Dassault Systèmes, Mar 2026."},
+    {"title": "Certified SOLIDWORKS Design Associate", "detail": "Dassault Systèmes, Feb 2026."}
+  ],
+  "tools": [
+    {"group": "Robotics", "items": "ROS2, sensor fusion, autonomous navigation, PID control, quadcopters."},
+    {"group": "Security", "items": "ICS and embedded pentesting, Zigbee, RFID, C2 frameworks, CTF design."},
+    {"group": "Making", "items": "SOLIDWORKS, CAD, 3D printing, laser cutting, microcontrollers."},
+    {"group": "Code", "items": "Python, Linux, shell scripting."}
+  ]
+}

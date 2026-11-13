@@ -1,0 +1,137 @@
+[
+  {
+    "slug": "wifinder",
+    "category": "Robotics",
+    "title": "Wifinder",
+    "when": "Nov 2025 to Jan 2026",
+    "summary": "Fusing Wi-Fi signal strength with IMU data in ROS 2 to localize a robot indoors.",
+    "text": [
+      "Indoor localization using Wi-Fi and an inertial measurement unit (IMU). GPS doesn't work indoors, Wi-Fi signal strength is noisy, and an IMU accumulates drift the longer you rely on it. Fusing Wi-Fi measurements with inertial data in ROS 2 lets each sensor compensate for the other's weaknesses."
+    ],
+    "tags": [
+      "ROS2",
+      "sensor fusion",
+      "localization"
+    ],
+    "links": [
+      {
+        "label": "Code",
+        "href": "https://github.com/kumarashish1neu/turtlebot-sim"
+      }
+    ],
+    "aliases": [
+      "indoor-localization-with-wifi"
+    ]
+  },
+  {
+    "slug": "ornithopters",
+    "category": "Robotics",
+    "title": "Ornithopters",
+    "when": "March 2026",
+    "summary": "How close can mechanisms get to replicating a bird's wing?",
+    "text": [
+      "How close can I get to replicating bird wings mechanically? I'm exploring the kinematics and mechanisms needed to turn a mechanical wing design into a working ornithopter."
+    ],
+    "tags": [
+      "Design",
+      "kinematics",
+      "CAD"
+    ],
+    "links": [
+      {
+        "label": "Code and CAD",
+        "href": "https://github.com/gall1frey/ornithopter"
+      }
+    ],
+    "aliases": [
+      "how-to-fly-like-birds"
+    ]
+  },
+  {
+    "slug": "frog-drone",
+    "group": "bench",
+    "category": "Robotics",
+    "title": "Frog Drone",
+    "short": "Frog Drone",
+    "when": "Ongoing",
+    "status": "in progress",
+    "summary": "A modular quadcopter with passive landing gear that uses its bounces to navigate.",
+    "text": [
+      "Can't really be a robotics student if I don't build a whole robot from start to finish. So the plan is to design the body of a tiny quadcopter and make it modular enough to support different types of landing gear. The landing gear will passively actuate to absorb impact and bounce, THEN I'll tune the flight controller so the quad can use those bounces to navigate around without losing control."
+    ],
+    "tags": [
+      "Design",
+      "kinematics",
+      "CAD",
+      "PCB design",
+      "Sensor Fusion",
+      "Controls"
+    ],
+    "aliases": [
+      "hopper"
+    ]
+  },
+  {
+    "slug": "slr-instant-film",
+    "group": "bench",
+    "category": "Misc",
+    "title": "An SLR that shoots instant film",
+    "short": "SLR Polaroid",
+    "status": "in design",
+    "when": "Ongoing",
+    "summary": "Fitting a mirror, a focusing screen and an instant film pack into one body.",
+    "text": [
+      "An SLR needs a lens, a mirror, a focusing screen, and a viewfinder. Instant film needs a flat film plane, a film pack positioned behind it, and rollers to spread the developing chemistry as each photo is ejected. Fitting all of that into one body while keeping the optical path and film transport working together is the puzzle.",
+      "I'm working out the mechanical layout in CAD."
+    ],
+    "tags": [
+      "camera design",
+      "SOLIDWORKS",
+      "optics"
+    ],
+    "aliases": [
+      "fitting-a-mirror-and-a-film-pack-in-one-body"
+    ]
+  },
+  {
+    "slug": "film-start-to-finish",
+    "category": "Misc",
+    "title": "Film, start to finish",
+    "when": "Ongoing",
+    "summary": "Restoring a film camera, then developing the film myself.",
+    "text": [
+      "I restored a film camera, then learned to develop my own film so I could understand the whole process, from a photo being taken to the image appearing on a strip of negative. A camera is a stack of small mechanical and timing problems, and fixing each one teaches you a lot about how the mechanisms work together."
+    ],
+    "tags": [
+      "camera restoration",
+      "film development",
+      "mechanisms"
+    ],
+    "aliases": [
+      "getting-a-film-camera-working-again"
+    ]
+  },
+  {
+    "slug": "audio-attacks",
+    "category": "Security",
+    "title": "Automating Audio Attack Vectors",
+    "when": "2022-2023",
+    "summary": "Finding how to compromise smart voice assistants.",
+    "text": [
+      "Automating Audio Attack Vectors: a portable proof-of-concept"
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "href": "https://link.springer.com/chapter/10.1007/978-981-99-5166-6_15"
+      }
+    ],
+    "tags": [
+      "security",
+      "sensor attacks"
+    ],
+    "aliases": [
+      "audio-attacks"
+    ]
+  }
+]
